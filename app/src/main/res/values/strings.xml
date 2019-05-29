@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Fire</string>
+    <string name="eur_symbol">€</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_amount">Enter amount..</string>
+    <string name="hint_return_percent">Enter percent..</string>
+    <string name="eur_suffix">EUR</string>
+    <string name="percent_symbol">%</string>
+    <string name="month_suffix">/month</string>
+    <string name="total_balance">Total balance</string>
+    <string name="no_assets">No assets</string>
+    <string name="edit_title">Edit Asset</string>
+    <string name="add_title">Add Asset</string>
+    <string name="delete_asset_title">Delete asset?</string>
+    <string name="delete_asset_alert_text">This will permanently delete current asset</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="name_error">Name can\'t be empty!</string>
+    <string name="balance_error">Balance can\'t be empty!</string>
+    <string name="default_return_value">0</string>
+
+    <string-array name="categories">
+        <item>Cash</item>
+        <item>Bank Account</item>
+        <item>Investment</item>
+        <item>Salary</item>
+
+    </string-array>
+
+</resources>

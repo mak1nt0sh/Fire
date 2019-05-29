@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.fire.addeditasset.AddEditAssetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="@{viewmodel.dataLoading ? View.GONE : View.VISIBLE}">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/hint_name"
+            bind:endIconMode="clear_text"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewmodel.name}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_category"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:dropDownVerticalOffset="35dp"
+            android:entries="@array/categories"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/name_input_layout"
+            bind:selectedValue="@={viewmodel.category}" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/balance_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/hint_amount"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/spinner_category">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="@={viewmodel.balance}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/eur_symbol"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            bind:layout_constraintBottom_toTopOf="@id/return_input_layout"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintStart_toEndOf="@+id/balance_input_layout"
+            bind:layout_constraintTop_toTopOf="@id/balance_input_layout" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/return_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/hint_return_percent"
+            android:visibility="@{viewmodel.isInvestment ? View.VISIBLE : View.INVISIBLE}"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/balance_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_return"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="@={viewmodel.annualReturn}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/percent_symbol"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="@{viewmodel.isInvestment ? View.VISIBLE : View.INVISIBLE}"
+            bind:layout_constraintBottom_toBottomOf="@id/return_input_layout"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintStart_toEndOf="@+id/return_input_layout"
+            bind:layout_constraintTop_toTopOf="@id/return_input_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
