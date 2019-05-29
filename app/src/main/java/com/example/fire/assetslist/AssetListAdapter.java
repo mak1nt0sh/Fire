@@ -21,7 +21,6 @@ public class AssetListAdapter extends ListAdapter<Asset, AssetListAdapter.AssetH
     protected AssetListAdapter(AssetClickCallback listener) {
         super(DIFF_CALLBACK);
         assetClickCallback = listener;
-        setHasStableIds(true);
     }
 
     private static final DiffUtil.ItemCallback<Asset> DIFF_CALLBACK = new DiffUtil.ItemCallback<Asset>() {
