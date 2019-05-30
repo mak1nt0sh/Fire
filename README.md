@@ -7,7 +7,7 @@
 
 * ViewModel - Used to manage UI related data, Survives config changes
 * LiveData - Lifecycle aware Observable data holder class
-* Room - To persist user todo records
+* Room - To persist user records
 * AndroidX - Project uses androidx packages
 * Material Desgin components
   
